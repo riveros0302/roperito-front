@@ -1,5 +1,5 @@
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || "http://localhost:3001",
+  BASE_URL: "https://roperito-backend.onrender.com", //http://localhost:3001 modo desarrollo
   ENDPOINTS: {
     AUTH: {
       REGISTER: "/api/auth/register",
