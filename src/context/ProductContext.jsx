@@ -37,7 +37,7 @@ function ProductProvider({ children }) {
   });
   const [notifications, setNotifications] = useState([]);
   const [newNotification, setNewNotification] = useState(false);
-  const [inProfile, setInProfile] = useState(true);
+  const [inProfile, setInProfile] = useState(false);
 
   useEffect(() => {
     const getAllProducts = async () => {

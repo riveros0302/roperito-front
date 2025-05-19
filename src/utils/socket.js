@@ -4,13 +4,14 @@ import { io } from "socket.io-client";
 const token = localStorage.getItem("token");
 
 // Paso 2: Conectar al servidor usando el token en `auth`
-const socket = io("http://localhost:3001", {
+const socket = io("https://roperito-backend.onrender.com", {
+  //http://localhost:3001 modo desarrollo
   auth: {
     token,
   },
-  transports: ['websocket', 'polling'],
+  transports: ["websocket", "polling"],
   withCredentials: true,
-  timeout: 45000
+  timeout: 45000,
 });
 
 // Paso 3: Escuchar conexión
