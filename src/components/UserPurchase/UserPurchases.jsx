@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import "./UserPurchases.css";
 import RatingModal from "../RatingModal/RatingModal";
 import { CiStar } from "react-icons/ci";
+import { formatMoney } from "../../utils/formatMoney";
 
 export default function PurchaseCard({ order }) {
   const [showRating, setShowRating] = useState(false);
@@ -22,8 +23,8 @@ export default function PurchaseCard({ order }) {
           </Card.Title>
 
           <Card.Text>
-            <strong>Precio pagado:</strong> $
-            {order.product_price.toLocaleString()} <br />
+            <strong>Precio pagado:</strong> ${formatMoney(order.product_price)}{" "}
+            <br />
             <strong>Vendedor:</strong> {order.seller_name}{" "}
             <span
               onClick={() => setShowRating(true)}

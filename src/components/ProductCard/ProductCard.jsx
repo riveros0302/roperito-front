@@ -11,6 +11,7 @@ import CustomModal from "../CustomModal/CustomModal";
 import UserRating from "../UserRating/UserRating";
 import { productService } from "../../services";
 import Loading from "../Loading/Loading";
+import { formatMoney } from "../../utils/formatMoney";
 
 const ProductCard = ({
   product,
@@ -77,7 +78,8 @@ const ProductCard = ({
           variant="top"
           src={
             product.images && product.images.length > 0
-              ? product.images.find((img) => img.order === 1)?.image_url || defaultImages.fallback
+              ? product.images.find((img) => img.order === 1)?.image_url ||
+                defaultImages.fallback
               : defaultImages.fallback
           }
           alt={product.title}
@@ -121,7 +123,9 @@ const ProductCard = ({
       </div>
       <Card.Body className="d-flex flex-column">
         <Card.Title>{product.name || product.title}</Card.Title>
-        <Card.Text className="text-primary fw-bold">${product.price}</Card.Text>
+        <Card.Text className="text-primary fw-bold">
+          ${formatMoney(product.price)}
+        </Card.Text>
         {(ratingInfo.rating > 0 || ratingInfo.total > 0) && (
           <div className="mb-2">
             <UserRating

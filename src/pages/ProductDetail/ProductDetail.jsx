@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { orderService, ratingService } from "../../services";
 import { useAuth } from "../../context/AuthContext";
 import { closedQuestions } from "../../constants/answers";
+import { formatMoney } from "../../utils/formatMoney";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -161,7 +162,7 @@ const ProductDetail = () => {
             <FavoriteButton product={product} isProductDetail />
           </div>
 
-          <h2 className="product-price">${product.price}</h2>
+          <h2 className="product-price">${formatMoney(product.price)}</h2>
 
           <div className="product-badges">
             <Badge bg="light" text="dark" className="product-badge">

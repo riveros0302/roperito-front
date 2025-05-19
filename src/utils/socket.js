@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 const token = localStorage.getItem("token");
 
 // Paso 2: Conectar al servidor usando el token en `auth`
-const socket = io("https://roperito-backend.onrender.com", {
+const socket = io(import.meta.env.VITE_API_URL, {
   //http://localhost:3001 modo desarrollo
   auth: {
     token,
